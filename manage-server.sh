@@ -2,6 +2,7 @@
 
 if [ "$1" = "test" ]
 then
+    docker-compose run --rm app sh -c 'python manage.py makemigrations'
     docker-compose run --rm app sh -c 'python manage.py test && flake8'
 elif [ "$1" = "startapp" ]
 then
